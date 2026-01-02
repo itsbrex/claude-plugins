@@ -1,5 +1,5 @@
 {
-  "name": "itsbrex",
+  "name": "ty-claude-plugin",
   "description": "ty LSP server plugin for Python type checking",
   "owner": "itsbrex",
   "plugins": [
