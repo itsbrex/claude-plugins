@@ -5,10 +5,10 @@
   "author": {
     "name": "Brian Roach"
   },
-  "homepage": "https://docs.astral.sh/ty",
+  "homepage": "https://github.com/itsbrex/ty-claude-plugin",
   "repository": {
     "type": "git",
-    "url": "https://github.com/astral-sh/ty"
+    "url": "https://github.com/itsbrex/ty-claude-plugin"
   },
   "license": "MIT"
 }
