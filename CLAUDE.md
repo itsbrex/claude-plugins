@@ -12,18 +12,21 @@ Claude Code plugin integrating **ty** (Astral's extremely fast Python type check
 
 ## Architecture
 
-Monorepo with `/ty-lsp-plugin/` as the distributable plugin directory.
-
-**Critical plugin structure rule**: Plugin manifest files (`plugin.json` and `marketplace.json`) go inside `.claude-plugin/`. The `.lsp.json` and other files must be at the plugin root level.
+Monorepo structure:
+- `/.claude-plugin/marketplace.json` - Marketplace catalog at repo root
+- `/ty-lsp-plugin/` - The distributable plugin directory
 
 ```
-ty-lsp-plugin/
+claude-plugins/                    # Repo root (marketplace)
 ├── .claude-plugin/
-│   ├── plugin.json              # Plugin manifest
-│   └── marketplace.json         # Local marketplace config
-├── .lsp.json                    # LSP config (at plugin root)
-├── verify-setup.sh              # Prerequisite verification
-└── test/example.py              # Test file with intentional type errors
+│   └── marketplace.json          # Marketplace catalog
+├── ty-lsp-plugin/                 # Plugin directory
+│   ├── .claude-plugin/
+│   │   └── plugin.json           # Plugin manifest
+│   ├── .lsp.json                  # LSP config
+│   ├── verify-setup.sh
+│   └── test/example.py
+└── CLAUDE.md
 ```
 
 ## Development Commands
@@ -41,7 +44,7 @@ uvx ty@latest check ty-lsp-plugin/test/example.py
 
 ## Marketplace Configuration
 
-The `marketplace.json` (in `.claude-plugin/`) enables local plugin installation. It references plugins by their location:
+The `marketplace.json` at repo root (`.claude-plugin/marketplace.json`) defines available plugins:
 
 ```json
 {
@@ -52,7 +55,7 @@ The `marketplace.json` (in `.claude-plugin/`) enables local plugin installation.
   "plugins": [
     {
       "name": "ty-lsp",
-      "source": "./",
+      "source": "./ty-lsp-plugin",
       "description": "ty LSP server plugin for Python type checking. ty is an extremely fast Python type checker written in Rust by Astral."
     }
   ]
@@ -62,7 +65,7 @@ The `marketplace.json` (in `.claude-plugin/`) enables local plugin installation.
 **Key fields**:
 - `name`: Marketplace identifier (used in install command: `/plugin install ty-lsp@cc-plugins`)
 - `owner`: Object with `name` field (required) and optional `email`
-- `plugins[].source`: Relative path string for local plugins (must start with `./`, e.g., `"./"` for current directory)
+- `plugins[].source`: Relative path to plugin directory (must start with `./`)
 - `plugins[].description`: Plugin description for discoverability
 
 To use this plugin locally, add to `~/.claude/settings.json`:

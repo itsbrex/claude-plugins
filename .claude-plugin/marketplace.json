@@ -6,7 +6,7 @@
   "plugins": [
     {
       "name": "ty-lsp",
-      "source": "./",
+      "source": "./ty-lsp-plugin",
       "description": "ty LSP server plugin for Python type checking. ty is an extremely fast Python type checker written in Rust by Astral."
     }
   ]

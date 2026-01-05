@@ -33,22 +33,17 @@ Clone the repository and add it as a local marketplace:
 git clone https://github.com/itsbrex/claude-plugins.git
 cd claude-plugins
 
-# Add the local marketplace
-/plugin marketplace add ./ty-lsp-plugin
+# Add the local marketplace (from repo root)
+/plugin marketplace add ./
 
 # Install the plugin
 /plugin install ty-lsp@cc-plugins
-```
 
-To update after making changes:
-
-```bash
+# Update after changes
 /plugin marketplace update cc-plugins
 ```
 
 ### Quick Test (without marketplace)
-
-For quick testing without adding a marketplace:
 
 ```bash
 claude --plugin-dir ./ty-lsp-plugin
