@@ -22,7 +22,7 @@ Add the marketplace and install the plugin:
 
 ```bash
 /plugin marketplace add itsbrex/claude-plugins
-/plugin install ty-lsp@claude-plugins
+/plugin install ty-lsp@cc-plugins
 ```
 
 ### Local Development
@@ -37,13 +37,13 @@ cd claude-plugins
 /plugin marketplace add ./ty-lsp-plugin
 
 # Install the plugin
-/plugin install ty-lsp@claude-plugins
+/plugin install ty-lsp@cc-plugins
 ```
 
 To update after making changes:
 
 ```bash
-/plugin marketplace update claude-plugins
+/plugin marketplace update cc-plugins
 ```
 
 ### Quick Test (without marketplace)

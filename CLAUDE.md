@@ -45,7 +45,7 @@ The `marketplace.json` (in `.claude-plugin/`) enables local plugin installation.
 
 ```json
 {
-  "name": "claude-plugins",
+  "name": "cc-plugins",
   "owner": {
     "name": "itsbrex"
   },
@@ -60,7 +60,7 @@ The `marketplace.json` (in `.claude-plugin/`) enables local plugin installation.
 ```
 
 **Key fields**:
-- `name`: Marketplace identifier (used in install command: `/plugin install ty-lsp@claude-plugins`)
+- `name`: Marketplace identifier (used in install command: `/plugin install ty-lsp@cc-plugins`)
 - `owner`: Object with `name` field (required) and optional `email`
 - `plugins[].source`: Relative path string for local plugins (must start with `./`, e.g., `"./"` for current directory)
 - `plugins[].description`: Plugin description for discoverability
@@ -70,7 +70,7 @@ To use this plugin locally, add to `~/.claude/settings.json`:
 ```json
 {
   "enabledPlugins": {
-    "ty-lsp@claude-plugins": true
+    "ty-lsp@cc-plugins": true
   },
   "extraKnownMarketplaces": {
     "itsbrex": {
