@@ -45,32 +45,32 @@ The `marketplace.json` (in `.claude-plugin/`) enables local plugin installation.
 
 ```json
 {
-  "name": "ty-lsp",
-  "description": "ty LSP server plugin for Python type checking",
-  "owner": "itsbrex",
+  "name": "claude-plugins",
+  "owner": {
+    "name": "itsbrex"
+  },
   "plugins": [
     {
       "name": "ty-lsp",
-      "source": {
-        "source": "directory",
-        "path": "."
-      }
+      "source": "./",
+      "description": "ty LSP server plugin for Python type checking. ty is an extremely fast Python type checker written in Rust by Astral."
     }
   ]
 }
 ```
 
 **Key fields**:
-- `owner`: Marketplace owner identifier (namespace for plugins)
-- `plugins[].source`: Specifies plugin location (current directory = `"."`)
-- Plugin metadata (description, version, author) belongs in `plugin.json`, not here
+- `name`: Marketplace identifier (used in install command: `/plugin install ty-lsp@claude-plugins`)
+- `owner`: Object with `name` field (required) and optional `email`
+- `plugins[].source`: Relative path string for local plugins (must start with `./`, e.g., `"./"` for current directory)
+- `plugins[].description`: Plugin description for discoverability
 
 To use this plugin locally, add to `~/.claude/settings.json`:
 
 ```json
 {
   "enabledPlugins": {
-    "ty-lsp@itsbrex": true
+    "ty-lsp@claude-plugins": true
   },
   "extraKnownMarketplaces": {
     "itsbrex": {

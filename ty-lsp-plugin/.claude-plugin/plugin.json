@@ -5,10 +5,7 @@
   "author": {
     "name": "Brian Roach"
   },
-  "homepage": "https://github.com/itsbrex/ty-claude-plugin",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/itsbrex/ty-claude-plugin"
-  },
+  "homepage": "https://github.com/itsbrex/claude-plugins",
+  "repository": "https://github.com/itsbrex/claude-plugins",
   "license": "MIT"
 }

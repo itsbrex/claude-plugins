@@ -41,14 +41,40 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 
 ### Install the Plugin
 
-#### Local testing
+#### From GitHub
+
+Add the marketplace and install the plugin:
+
 ```bash
-claude --plugin-dir ./ty-lsp-plugin
+/plugin marketplace add itsbrex/claude-plugins
+/plugin install ty-lsp@claude-plugins
 ```
 
-#### From a marketplace
+#### Local Development
+
+Clone the repository and add it as a local marketplace:
+
 ```bash
-/plugin install ty-lsp
+git clone https://github.com/itsbrex/claude-plugins.git
+cd claude-plugins
+
+# Add the local marketplace
+/plugin marketplace add ./ty-lsp-plugin
+
+# Install the plugin
+/plugin install ty-lsp@claude-plugins
+```
+
+To update after making changes:
+
+```bash
+/plugin marketplace update claude-plugins
+```
+
+#### Quick Test (without marketplace)
+
+```bash
+claude --plugin-dir ./ty-lsp-plugin
 ```
 
 ## Quick Start
@@ -77,17 +103,17 @@ Run the included verification script to check prerequisites:
 
 ```
 ty-claude-plugin/
-├── ty-lsp-plugin/          # The actual plugin
+├── ty-lsp-plugin/              # The plugin (and marketplace root)
 │   ├── .claude-plugin/
-│   │   └── plugin.json     # Plugin manifest
-│   ├── .lsp.json           # LSP configuration
-│   ├── README.md           # Plugin documentation
-│   ├── TEST_RESULTS.md     # Test results
-│   ├── verify-setup.sh     # Setup verification
+│   │   ├── plugin.json         # Plugin manifest
+│   │   └── marketplace.json    # Marketplace configuration
+│   ├── .lsp.json               # LSP configuration
+│   ├── README.md               # Plugin documentation
+│   ├── verify-setup.sh         # Setup verification
 │   └── test/
-│       └── example.py      # Test file
-├── TESTING_SUMMARY.md      # Overall testing summary
-└── README.md               # This file
+│       └── example.py          # Test file with type errors
+├── CLAUDE.md                   # Claude Code instructions
+└── README.md                   # This file
 ```
 
 ## Testing

@@ -1,14 +1,13 @@
 {
-  "name": "ty-claude-plugin",
-  "description": "ty LSP server plugin for Python type checking",
-  "owner": "itsbrex",
+  "name": "claude-plugins",
+  "owner": {
+    "name": "itsbrex"
+  },
   "plugins": [
     {
       "name": "ty-lsp",
-      "source": {
-        "source": "directory",
-        "path": "."
-      }
+      "source": "./",
+      "description": "ty LSP server plugin for Python type checking. ty is an extremely fast Python type checker written in Rust by Astral."
     }
   ]
 }

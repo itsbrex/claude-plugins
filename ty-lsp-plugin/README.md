@@ -16,17 +16,39 @@ This plugin integrates [ty](https://docs.astral.sh/ty), an extremely fast Python
 
 ## Installation
 
-### From a marketplace
+### From GitHub
 
-If this plugin is available in a marketplace, install it using:
+Add the marketplace and install the plugin:
 
 ```bash
-/plugin install ty-lsp
+/plugin marketplace add itsbrex/claude-plugins
+/plugin install ty-lsp@claude-plugins
 ```
 
-### Local installation (for development)
+### Local Development
 
-Clone or download this plugin directory, then load it:
+Clone the repository and add it as a local marketplace:
+
+```bash
+git clone https://github.com/itsbrex/claude-plugins.git
+cd claude-plugins
+
+# Add the local marketplace
+/plugin marketplace add ./ty-lsp-plugin
+
+# Install the plugin
+/plugin install ty-lsp@claude-plugins
+```
+
+To update after making changes:
+
+```bash
+/plugin marketplace update claude-plugins
+```
+
+### Quick Test (without marketplace)
+
+For quick testing without adding a marketplace:
 
 ```bash
 claude --plugin-dir ./ty-lsp-plugin
